@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserMapper">
+
+<select id="getUserList" resultType="user">
+
+        select * from mybatis.tbl_employee
+
+    </select>
+
+
+    <!--增加一条数据-->
+    <insert id="addUser" parameterType="com.pojo.User">
+        insert into mybatis.tbl_employee(id, name, pwd) values (#{id},#{name},#{pwd});
+    </insert>
+
+    <update id="updateUser" parameterType="com.pojo.User">
+        update mybatis.tbl_employee set name=#{name},pwd=#{pwd} where id=#{id}
+    </update>
+
+    <!--删除数据-->
+    <delete id="deleteUser" parameterType="int">
+        delete from mybatis.tbl_employee where id=#{id}
+    </delete>
+
+
+
+</mapper>
